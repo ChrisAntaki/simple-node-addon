@@ -1,0 +1,21 @@
+{
+  "name": "simple-node-addon",
+  "version": "0.0.1",
+  "description": "",
+  "main": "example.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install": "node-gyp rebuild"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ChrisAntaki/simple-node-addon.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "gypfile": true,
+  "bugs": {
+    "url": "https://github.com/ChrisAntaki/simple-node-addon/issues"
+  },
+  "homepage": "https://github.com/ChrisAntaki/simple-node-addon"
+}
