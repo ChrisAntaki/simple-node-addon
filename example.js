@@ -1,7 +1,6 @@
 const
-    addon = require('./build/Release/addon'),
-    add   = addon.add,
-    num1  = +process.argv[2] || 2,
-    num2  = +process.argv[3] || 2;
+    addon  = require('./build/Release/addon');
 
-console.log(add(num1, num2));
+
+console.log(addon.add(2, 2));
+console.log(addon.concat('Hello', ' world'));

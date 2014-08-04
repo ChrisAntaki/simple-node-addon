@@ -31,10 +31,43 @@ Handle<Value> Add(const Arguments& args) {
     return scope.Close(result);
 }
 
+Handle<Value> Concat(const Arguments& args) {
+    HandleScope scope;
+
+    if (args.Length() != 2) {
+        ThrowException(
+            Exception::TypeError(
+                String::New("Expected two arguments")
+            )
+        );
+        return scope.Close(Undefined());
+    }
+
+    if (!args[0]->IsString() || !args[1]->IsString()) {
+        ThrowException(
+            Exception::TypeError(
+                String::New("Expected two strings")
+            )
+        );
+        return scope.Close(Undefined());
+    }
+
+    const Local<String> result = String::Concat(
+        args[0]->ToString(), args[1]->ToString()
+    );
+
+    return scope.Close(result);
+}
+
 void Init(Handle<Object> exports, Handle<Object> module) {
     exports->Set(
         String::NewSymbol("add"),
         FunctionTemplate::New(Add)->GetFunction()
+    );
+
+    exports->Set(
+        String::NewSymbol("concat"),
+        FunctionTemplate::New(Concat)->GetFunction()
     );
 }
 
